@@ -95,7 +95,7 @@
             $actions = array(
                 'cd'=>'cd '.$this->docRoot.$this->repository,
             //    'chown'=>'sudo chown -R http *',
-                'gitReset'=>'git reset --hard HEAD',
+            //    'gitReset'=>'git reset --hard HEAD',
                 'gitPull'=>'git pull -u git://github.com/seagoj/'.$this->repository.'.git master',
                 );
 
