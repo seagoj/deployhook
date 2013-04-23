@@ -18,7 +18,8 @@ var server = http.createServer(function (req,res) {
             console.log("Check for "+docRoot+payload.repository.name);
             console.log("If No: sudo -u http git clone "+payload.repository.url+".git "+docRoot+payload.repository.name);
             console.log("If Yes: cd "+docRoot+payload.repository.name+" && sudo -u http git pull "+payload.repository.url+".git master");
-        }
+
+    }
 
         res.writeHead(200);
         res.end();
