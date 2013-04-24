@@ -4,7 +4,7 @@ class HookTest extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        $_REQUEST['payload'] = "not test";
+        $_REQUEST['payload'] = "test";
     }
 
     public function tearDown()
