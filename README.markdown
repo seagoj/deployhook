@@ -1,4 +1,4 @@
-## hook
+## hook [![Build Status](https://travis-ci.org/seagoj/hook.png?branch=master)](https://travis-ci.org/seagoj/hook)
 Webhook for deploying git repositories via PHP
 
 ### Installation instructions
