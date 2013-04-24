@@ -2,23 +2,30 @@
 
 <phpunit bootstrap="Tests/bootstrap.php" colors="true">
     <php>
-        <var name="db_dsn" value="mysql:dbname=hello_world_test;host=localhost"/>
+<!--//        <var name="db_dsn" value="mysql:dbname=hello_world_test;host=localhost"/>
         <var name="db_username" value="root"/>
-        <var name="db_password" value=""/>
+        <var name="db_password" value=""/>//-->
     </php>
 
     <testsuites>
-        <testsuite name="Hello World Test Suite">
+        <testsuite name="Hook Test Suite">
             <directory>./tests/</directory>
         </testsuite>
     </testsuites>
 
     <filter>
         <whitelist>
-            <directory>./</directory>
+            <directory>./src/</directory>
+            <directory>./lib/</directory>
             <exclude>
                 <directory>./tests</directory>
             </exclude>
         </whitelist>
     </filter>
+
+    <logging>
+        <log type="coverage-text" target="php://stdout" showUncoveredFiles="false"/>
+        <log type="tap" target="/tmp/logfile.tap"/>
+    </logging>
+
 </phpunit>
