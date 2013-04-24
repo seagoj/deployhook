@@ -9,7 +9,7 @@ class HookTest extends PHPUnit_Framework_TestCase
 
     public function tearDown()
     {
-        unset($_REQUEST)
+        unset($_REQUEST);
     }
 
     public function testHook()
