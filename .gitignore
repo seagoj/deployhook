@@ -8,3 +8,4 @@ cookbooks
 Thumbs.db
 Desktop.ini
 *.log
+src/payload.json
