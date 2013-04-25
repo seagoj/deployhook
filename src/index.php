@@ -84,7 +84,7 @@
         {
             $this->payload = json_decode($_REQUEST[$var]);
 
-            file_put_contents('payload.json', $_REQUEST[$var]);
+            file_put_contents('tests/payload.json', $_REQUEST[$var]);
 
             $this->logToFile(__METHOD__.'('.$var.')',$setPayload=isset($this->payload));
 
