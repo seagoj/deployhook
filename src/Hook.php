@@ -56,7 +56,7 @@
                 $requestIP = $_SERVER["HTTP_X_FORWARDED_FOR"];
             } else if ( isset($_SERVER["HTTP_CLIENT_IP"]) ) {
                 $requestIP = $_SERVER["HTTP_CLIENT_IP"]; 
-            }
+            } else $requestIP = '0.0.0.0';
             
             $validIPs = array(
                 '72.1.161.68',
