@@ -12,9 +12,14 @@ class HookTest extends PHPUnit_Framework_TestCase
         unset($_REQUEST);
     }
 
-    public function testHook()
+    public function testPayload()
     {
         $this->assertTrue(isset($_REQUEST['payload']));
+    }
+    
+    public function testHook()
+    {
+        $this->assertInstanceOf('Hook', $hook = new Hook());
     }
 }
 
