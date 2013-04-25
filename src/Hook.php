@@ -92,5 +92,3 @@
 //            $this->logToFile("\r\n");
         }
     }
-
-new Hook();
