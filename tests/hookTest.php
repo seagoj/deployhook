@@ -11,7 +11,7 @@ class HookTest extends PHPUnit_Framework_TestCase
     public function tearDown()
     {
         unset($_REQUEST);
-        unset($_SERVER['HTTP_CLIENT_IP']));
+        unset($_SERVER['HTTP_CLIENT_IP']);
     }
 
     public function testPayload()
