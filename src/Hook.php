@@ -64,7 +64,7 @@
 
 //            $this->logToFile(__METHOD__.'('.$var.')',$setPayload=isset($this->payload));
 
-            return $setPayload;
+            return isset($this->payload);
         }
 
         private function updateRepo()
