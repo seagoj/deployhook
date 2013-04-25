@@ -51,8 +51,7 @@
                 '127.0.0.1'
             );          
             
-//            $this->logToFile(__METHOD__.'('.$requestIP.')', $result =
-            in_array($requestIP, $validIPs));
+//            $this->logToFile(__METHOD__.'('.$requestIP.')', $result = in_array($requestIP, $validIPs));
 
             return $result;
         }
