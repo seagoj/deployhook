@@ -1,4 +1,7 @@
     <?php
+    
+    namespace Devtools;
+    
     class Log {
         private $testCount;
 
