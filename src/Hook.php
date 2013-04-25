@@ -1,5 +1,8 @@
 <?php
+    require '../lib/Devtools/Log.php';
+
     class Hook {
+        private $log;
         private $testCount;
         private $repository;
         private $docRoot;
@@ -7,8 +10,10 @@
 
         public function __construct()
         {
-//            $this->logToFile(date("m-d-Y H:i:s"));
-//            $this->testCount = 0;
+            $this->log = new \Devtools\Log();
+
+//            $this->log->logToFile(date("m-d-Y H:i:s"));
+//            $this->log->testCount = 0;
             
             if($this->checkIP() && $this->getPayload())
             {
@@ -16,7 +21,7 @@
                 $this->docRoot = '/var/www/'.escapeshellcmd($this->repository);
 
                 $pathExists = is_dir($this->docRoot);
-//                $this->logToFile('is_dir('.$this->docRoot.')', $pathExists);
+                $this->log->logToFile('is_dir('.$this->docRoot.')', $pathExists);
 
                 if($pathExists) {
                     $this->updateRepo();
@@ -51,7 +56,7 @@
                 '127.0.0.1'
             );          
             
-//            $this->logToFile(__METHOD__.'('.$requestIP.')', $result = in_array($requestIP, $validIPs));
+            $this->log->logToFile(__METHOD__.'('.$requestIP.')', $result = in_array($requestIP, $validIPs));
 
             return in_array($requestIP, $validIPs);
         }
@@ -62,7 +67,7 @@
 
             file_put_contents('tests/payload.json', $_REQUEST[$var]);
 
-//            $this->logToFile(__METHOD__.'('.$var.')',$setPayload=isset($this->payload));
+            $this->log->logToFile(__METHOD__.'('.$var.')',$setPayload=isset($this->payload));
 
             return isset($this->payload);
         }
@@ -77,12 +82,12 @@
                 );
 
             $command = implode($actions, ' && ');
-//            $this->logToFile($command, $setCommand = isset($command));
+            $this->log->logToFile($command, $setCommand = isset($command));
 
             if($setCommand = isset($command))
                 $output = shell_exec("$command 2>&1");
 
-//            $this->logToFile($output, $output!=null);
+            $this->log->logToFile($output, $output!=null);
         }
 
         public function __destruct()
