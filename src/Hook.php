@@ -13,7 +13,7 @@
             if($this->checkIP() && $this->getPayload())
             {
                 $this->repository = $this->payload->repository->name;
-                $this->docRoot = '/var/www/'.escapeshellcmd($repository);
+                $this->docRoot = '/var/www/'.escapeshellcmd($this->repository);
 
                 $pathExists = is_dir($this->docRoot);
 //                $this->logToFile('is_dir('.$this->docRoot.')', $pathExists);
