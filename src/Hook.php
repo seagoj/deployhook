@@ -7,8 +7,8 @@
 
         public function __construct()
         {
-            $this->logToFile(date("m-d-Y H:i:s"));
-            $this->testCount = 0;
+//            $this->logToFile(date("m-d-Y H:i:s"));
+//            $this->testCount = 0;
             
             if($this->checkIP() && $this->getPayload())
             {
@@ -16,36 +16,12 @@
                 $this->docRoot = '/var/www/'.escapeshellcmd($repository);
 
                 $pathExists = is_dir($this->docRoot);
-                $this->logToFile('is_dir('.$this->docRoot.')', $pathExists);
+//                $this->logToFile('is_dir('.$this->docRoot.')', $pathExists);
 
                 if($pathExists) {
                     $this->updateRepo();
                 }
             }
-        }
-
-        private function logToFile($content, $result='EMPTY', $file="hook.log")
-        {
-            $endline = "\r\n";
-            $content = $this->tapify($content, $result);
-
-            print "<div>$content</div>";
-            return file_put_contents($file, $content.$endline, FILE_APPEND);
-        }
-
-        private function tapify($content, $result) {
-            $nextTest = $this->testCount+1;
-            $prefix = 'ok '.$nextTest.' - ';
-            
-            if($result!=='EMPTY') {
-                    $this->testCount = $nextTest;
-                    $content = $prefix.$content;
-                if(!$result) {
-                    $content = 'not '.$content;
-                }
-            }
-
-            return $content;
         }
 
         private function checkIP()
@@ -75,7 +51,7 @@
                 '127.0.0.1'
             );          
             
-            $this->logToFile(__METHOD__.'('.$requestIP.')', $result =
+//            $this->logToFile(__METHOD__.'('.$requestIP.')', $result =
             in_array($requestIP, $validIPs));
 
             return $result;
@@ -87,7 +63,7 @@
 
             file_put_contents('tests/payload.json', $_REQUEST[$var]);
 
-            $this->logToFile(__METHOD__.'('.$var.')',$setPayload=isset($this->payload));
+//            $this->logToFile(__METHOD__.'('.$var.')',$setPayload=isset($this->payload));
 
             return $setPayload;
         }
@@ -102,19 +78,19 @@
                 );
 
             $command = implode($actions, ' && ');
-            $this->logToFile($command, $setCommand = isset($command));
+//            $this->logToFile($command, $setCommand = isset($command));
 
             if($setCommand)
                 $output = shell_exec("$command 2>&1");
 
-            $this->logToFile($output, $output!=null);
+//            $this->logToFile($output, $output!=null);
         }
 
         public function __destruct()
         {
-            $postfix = '1..'.$this->testCount;
-            $this->logToFile($postfix);
-            $this->logToFile("\r\n");
+//            $postfix = '1..'.$this->testCount;
+//            $this->logToFile($postfix);
+//            $this->logToFile("\r\n");
         }
     }
 
