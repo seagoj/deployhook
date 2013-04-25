@@ -4,7 +4,7 @@ class HookTest extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        $_REQUEST['payload'] = file_get_contents('payload.json');
+        $_REQUEST['payload'] = file_get_contents('tests/payload.json');
     }
 
     public function tearDown()
