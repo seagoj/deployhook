@@ -19,7 +19,8 @@ class HookTest extends PHPUnit_Framework_TestCase
     
     public function testHook()
     {
-        $this->assertInstanceOf('Hook', $hook = new Hook());
+        $hook = new Hook();
+        $this->assertInstanceOf('Hook', $hook);
     }
 }
 
