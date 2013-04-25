@@ -53,7 +53,7 @@
             
 //            $this->logToFile(__METHOD__.'('.$requestIP.')', $result = in_array($requestIP, $validIPs));
 
-            return $result;
+            return in_array($requestIP, $validIPs);
         }
 
         private function getPayload($var='payload')
@@ -79,7 +79,7 @@
             $command = implode($actions, ' && ');
 //            $this->logToFile($command, $setCommand = isset($command));
 
-            if($setCommand)
+            if($setCommand = isset($command))
                 $output = shell_exec("$command 2>&1");
 
 //            $this->logToFile($output, $output!=null);
