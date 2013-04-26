@@ -12,16 +12,13 @@
         {
             $this->log = new \Devtools\Log();
 
-//            $this->log->logToFile(date("m-d-Y H:i:s"));
-//            $this->log->testCount = 0;
-            
             if($this->checkIP() && $this->getPayload())
             {
                 $this->repository = $this->payload->repository->name;
                 $this->docRoot = '/var/www/'.escapeshellcmd($this->repository);
 
                 $pathExists = is_dir($this->docRoot);
-                $this->log->logToFile('is_dir('.$this->docRoot.')', $pathExists);
+                $this->log->file('is_dir('.$this->docRoot.')', $pathExists);
 
                 if($pathExists) {
                     $this->updateRepo();
@@ -56,7 +53,7 @@
                 '127.0.0.1'
             );          
             
-            $this->log->logToFile(__METHOD__.'('.$requestIP.')', $result = in_array($requestIP, $validIPs));
+            $this->log->file(__METHOD__.'('.$requestIP.')', $result = in_array($requestIP, $validIPs));
 
             return in_array($requestIP, $validIPs);
         }
@@ -67,7 +64,7 @@
 
             file_put_contents('tests/payload.json', $_REQUEST[$var]);
 
-            $this->log->logToFile(__METHOD__.'('.$var.')',$setPayload=isset($this->payload));
+            $this->log->file(__METHOD__.'('.$var.')',$setPayload=isset($this->payload));
 
             return isset($this->payload);
         }
@@ -82,18 +79,15 @@
                 );
 
             $command = implode($actions, ' && ');
-            $this->log->logToFile($command, $setCommand = isset($command));
+            $this->log->file($command, $setCommand = isset($command));
 
             if($setCommand = isset($command))
                 $output = shell_exec("$command 2>&1");
 
-            $this->log->logToFile($output, $output!=null);
+            $this->log->file($output, $output!=null);
         }
 
         public function __destruct()
         {
-//            $postfix = '1..'.$this->testCount;
-//            $this->logToFile($postfix);
-//            $this->logToFile("\r\n");
         }
     }
