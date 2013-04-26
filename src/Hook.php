@@ -10,7 +10,7 @@
 
         public function __construct()
         {
-            $this->log = new \Devtools\Log();
+            $this->log = new \Devtools\Log('Hook.log');
 
             if($this->checkIP() && $this->getPayload())
             {
