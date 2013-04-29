@@ -10,7 +10,7 @@
         private $config;
 
         public function __construct($options)
-        {)
+        {
             $this->_config($options);
 
             $this->log = new \Devtools\Log($this->config['file']);
