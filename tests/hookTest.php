@@ -7,7 +7,7 @@ class HookTest extends PHPUnit_Framework_TestCase
         $_REQUEST['payload'] = file_get_contents('tests/payload.json');
         $_SERVER['HTTP_CLIENT_IP'] = '127.0.0.1';
         if(!is_dir('tests/docroot')) mkdir('tests/docroot');
-        if(!is_dir('tests/docroot/hook')) mkdir('tests/docroot/hook')'))
+        if(!is_dir('tests/docroot/hook')) mkdir('tests/docroot/hook');
     }
 
     public function tearDown()
