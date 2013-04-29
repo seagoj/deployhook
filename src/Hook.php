@@ -16,7 +16,7 @@
             ];
 
             foreach($options as $option=>$value) {
-                if(array_}ay_exists($option, $defaults))
+                if(array_key_exists($option, $defaults))
                     $defaults[$option]=$value;
                 else
                     $this->log->file($option." is not a valid option for ".__CLASS__);
