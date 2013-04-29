@@ -22,7 +22,7 @@
                 $this->docRoot = $this->config['docroot'].escapeshellcmd($this->repository);
 
                 $pathExists = is_dir($this->docRoot);
-//                $this->log->file('is_dir('.$this->docRoot.')', $pathExists);
+                $this->log->file('is_dir('.$this->docRoot.')', $pathExists);
 
                 if($pathExists) {
                     $this->updateRepo();
@@ -75,7 +75,7 @@
                 '127.0.0.1'
             );          
             
-//            $this->log->file(__METHOD__.'('.$requestIP.')', $result = in_array($requestIP, $validIPs));
+            $this->log->file(__METHOD__.'('.$requestIP.')', $result = in_array($requestIP, $validIPs));
 
             return in_array($requestIP, $validIPs);
         }
@@ -86,7 +86,7 @@
 
             file_put_contents('tests/payload.json', $_REQUEST[$var]);
 
-//            $this->log->file(__METHOD__.'('.$var.')',$setPayload=isset($this->payload));
+            $this->log->file(__METHOD__.'('.$var.')',$setPayload=isset($this->payload));
 
             return isset($this->payload);
         }
@@ -99,12 +99,12 @@
             );
 
             $command = implode($actions, ' && ');
-//            $this->log->file($command, $setCommand = isset($command));
+            $this->log->file($command, $setCommand = isset($command));
 
             if($setCommand = isset($command))
                 $output = shell_exec("$command 2>&1");
 
-//            $this->log->file($output, $output!=null);
+            $this->log->file($output, $output!=null);
             $this->output = $output;
         }
 
