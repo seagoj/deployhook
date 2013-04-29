@@ -28,7 +28,7 @@ class HookTest extends PHPUnit_Framework_TestCase
 
         $hook = new Hook($options);
         $this->assertInstanceOf('Hook', $hook);
-        $this->assertTrue(strpos($hook.output, $goodResult)!== false);
+        $this->assertTrue(strpos($hook->output, $goodResult)!== false);
     }
 }
 
