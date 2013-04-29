@@ -6,3 +6,5 @@ Webhook for deploying git repositories via PHP
 * Clone the repo as the user your PHP server runs as (usually http) to your docroot
 
     sudo -u http git clone [PATH_TO_REPO]
+
+### Testing
