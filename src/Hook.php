@@ -8,6 +8,7 @@
         private $docRoot;
         private $payload;
         private $config;
+        public $output;
 
         public function __construct($options)
         {
@@ -94,10 +95,8 @@
         {
             $actions = array(
                 'cd'=>'cd '.$this->docRoot,
-            //    'chown'=>'sudo chown -R http *',
-            //    'gitReset'=>'git reset --hard HEAD',
                 'gitPull'=>'git pull -u git://github.com/seagoj/'.$this->repository.'.git master',
-                );
+            );
 
             $command = implode($actions, ' && ');
             $this->log->file($command, $setCommand = isset($command));
@@ -106,6 +105,7 @@
                 $output = shell_exec("$command 2>&1");
 
             $this->log->file($output, $output!=null);
+            $this->output = $output;
         }
 
         public function __destruct()
