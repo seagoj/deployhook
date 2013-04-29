@@ -1,5 +1,5 @@
 <?php
-    require 'lib/Devtools/Log.php';
+    require '../lib/Devtools/Log.php';
 
     class Hook {
         private $log;
