@@ -21,9 +21,9 @@
 //                $this->log->file($pathExists, $pathExists);
                 $this->log->file('is_dir('.$this->docRoot.')', $pathExists);
 
-//                if($pathExists) {
+                if($pathExists) {
                     $this->updateRepo();
-//                }
+                }
             }
         }
 

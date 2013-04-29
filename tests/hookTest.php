@@ -6,6 +6,7 @@ class HookTest extends PHPUnit_Framework_TestCase
     {
         $_REQUEST['payload'] = file_get_contents('tests/payload.json');
         $_SERVER['HTTP_CLIENT_IP'] = '127.0.0.1';
+        mkdir('/var/www/hook');
     }
 
     public function tearDown()
