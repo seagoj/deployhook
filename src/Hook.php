@@ -15,7 +15,7 @@
                 'file'=>'Hook.log'
             ];
 
-            foreach $options as $option=>$value {
+            foreach($options as $option=>$value) {
                 if(array_}ay_exists($option, $defaults))
                     $defaults[$option]=$value;
                 else
