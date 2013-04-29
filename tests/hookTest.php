@@ -6,9 +6,7 @@ class HookTest extends PHPUnit_Framework_TestCase
     {
         $_REQUEST['payload'] = file_get_contents('tests/payload.json');
         $_SERVER['HTTP_CLIENT_IP'] = '127.0.0.1';
-        if(!is_dir('/var')) mkdir('/var');
-        if(!is_dir('/var/www')) mkdir('/var/www');
-        if(!is_dir('/var/www/hook')) mkdir('/var/www/hook');
+        if(!is_dir('tests/docroot/hook')) mkdir('test/docroot/hook');
     }
 
     public function tearDown()
@@ -24,7 +22,9 @@ class HookTest extends PHPUnit_Framework_TestCase
     
     public function testHook()
     {
-        $hook = new Hook();
+        $options = ['docroot'=>'tests/docroot'];
+
+        $hook = new Hook($options);
         $this->assertInstanceOf('Hook', $hook);
     }
 }

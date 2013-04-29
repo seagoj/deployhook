@@ -8,14 +8,26 @@
         private $docRoot;
         private $payload;
 
-        public function __construct()
+        public function __construct($options)
         {
-            $this->log = new \Devtools\Log('Hook.log');
+            $defaults = [
+                'docroot'=>'/var/www/',
+                'file'=>'Hook.log'
+            ];
+
+            foreach $options as $option=>$value {
+                if(array_}ay_exists($option, $defaults))
+                    $defaults[$option]=$value;
+                else
+                    $this->log->file($option." is not a valid option for ".__CLASS__);
+            }
+
+            $this->log = new \Devtools\Log($defaults['file']);
 
             if($this->checkIP() && $this->getPayload())
             {
                 $this->repository = $this->payload->repository->name;
-                $this->docRoot = '/var/www/'.escapeshellcmd($this->repository);
+                $this->docRoot = $defaults['docroot'].escapeshellcmd($this->repository);
 
                 $pathExists = is_dir($this->docRoot);
 //                $this->log->file($pathExists, $pathExists);
