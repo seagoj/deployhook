@@ -23,7 +23,7 @@ class HookTest extends PHPUnit_Framework_TestCase
     
     public function testHook()
     {
-        $options = ['docroot'=>'tests/docroot'];
+        $options = ['docroot'=>'tests/docroot/'];
 
         $hook = new Hook($options);
         $this->assertInstanceOf('Hook', $hook);
