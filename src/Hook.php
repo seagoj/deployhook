@@ -14,7 +14,7 @@
         {
             $this->_config($options);
 
-//            $this->log = new \Devtools\Log($this->config['file']);
+            $this->log = new \Devtools\Log($this->config['file']);
 
             if($this->checkIP() && $this->getPayload())
             {
