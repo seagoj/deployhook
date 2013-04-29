@@ -7,8 +7,29 @@
         private $repository;
         private $docRoot;
         private $payload;
+        private $config;
 
         public function __construct($options)
+        {)
+            $this->_config($options);
+
+            $this->log = new \Devtools\Log($this->config['file']);
+
+            if($this->checkIP() && $this->getPayload())
+            {
+                $this->repository = $this->payload->repository->name;
+                $this->docRoot = $this->config['docroot'].escapeshellcmd($this->repository);
+
+                $pathExists = is_dir($this->docRoot);
+                $this->log->file('is_dir('.$this->docRoot.')', $pathExists);
+
+                if($pathExists) {
+                    $this->updateRepo();
+                }
+            }
+        }
+
+        private function _config($options)
         {
             $defaults = [
                 'docroot'=>'/var/www/',
@@ -22,21 +43,8 @@
                     $this->log->file($option." is not a valid option for ".__CLASS__);
             }
 
-            $this->log = new \Devtools\Log($defaults['file']);
-
-            if($this->checkIP() && $this->getPayload())
-            {
-                $this->repository = $this->payload->repository->name;
-                $this->docRoot = $defaults['docroot'].escapeshellcmd($this->repository);
-
-                $pathExists = is_dir($this->docRoot);
-//                $this->log->file($pathExists, $pathExists);
-                $this->log->file('is_dir('.$this->docRoot.')', $pathExists);
-
-                if($pathExists) {
-                    $this->updateRepo();
-                }
-            }
+            $this->config = $defaults;
+   
         }
 
         private function checkIP()
