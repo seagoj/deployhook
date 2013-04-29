@@ -1,5 +1,5 @@
 <?php
-    require_once '../lib/Devtools/Log.php';
+    require_once 'bootstrap.php';
 
     class Hook {
         private $log;
