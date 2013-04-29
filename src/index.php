@@ -1,5 +1,5 @@
 <?php
-//    require 'Hook.php';
+    require 'Hook.php';
 
 //    new Hook();
 
