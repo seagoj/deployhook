@@ -73,7 +73,7 @@
         private function updateRepo()
         {
             $actions = array(
-                'cd'=>'cd '.$this->docRoot.$this->repository,
+                'cd'=>'cd '.$this->docRoot,
             //    'chown'=>'sudo chown -R http *',
             //    'gitReset'=>'git reset --hard HEAD',
                 'gitPull'=>'git pull -u git://github.com/seagoj/'.$this->repository.'.git master',
