@@ -4,7 +4,6 @@ class HookTest extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        require_once 'lib/Devtools/Log.php';
         $_REQUEST['payload'] = file_get_contents('tests/payload.json');
         $_SERVER['HTTP_CLIENT_IP'] = '127.0.0.1';
         if(!is_dir('tests/docroot')) mkdir('tests/docroot');

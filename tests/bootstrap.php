@@ -6,7 +6,7 @@ function loader($class)
     if (file_exists('src/'.$file)) {
         require 'src/'.$file;
     } else if (file_exists('lib/Devtools/'.$file)) {
-        require $'lib/Devtools/'.$file;        
+        require 'lib/Devtools/'.$file;        
     }
 }
 
