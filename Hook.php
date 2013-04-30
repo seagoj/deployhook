@@ -34,7 +34,7 @@
         {
             $defaults = [
                 'docroot'=>'/var/www/',
-                'file'=>'Hook.log'
+                'file'=>'hook.log'
             ];
 
             foreach($options as $option=>$value) {
