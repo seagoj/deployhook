@@ -1,5 +1,6 @@
 ## hook [![Build Status](https://travis-ci.org/seagoj/hook.png?branch=master)](https://travis-ci.org/seagoj/hook)
-Webhook for deploying git repositories via PHP
+Webhook for deploying git repositories via PHP.
+Designed for use with Github
 
 ### Installation instructions
 * Add the path to the script to your repository as a webhook ex//http://hook.seagoj.com:2223
